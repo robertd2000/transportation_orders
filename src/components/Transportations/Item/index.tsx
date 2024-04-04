@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { TransportationItemProps } from "./TransportationItem.interface";
 import { Card, Col, Divider, List, Row } from "antd";
 import dayjs from "dayjs";
+import { TransportationItemProps } from "./TransportationItem.interface";
 
 export const TransportationItem: FC<TransportationItemProps> = ({ item }) => {
   return (
     <List.Item key={item.id}>
-      <Card style={{ width: "100%" }}>
+      <Card>
         <Row gutter={16}>
           <Col span={8}>
             <div>

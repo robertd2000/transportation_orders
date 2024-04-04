@@ -16,6 +16,6 @@ export const selectOptions: { label: ReactNode; value: string }[] = [
         <AppstoreOutlined />
       </>
     ),
-    value: "grid",
+    value: "card",
   },
 ];

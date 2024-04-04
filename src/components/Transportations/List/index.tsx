@@ -5,6 +5,7 @@ import VirtualList from "rc-virtual-list";
 import { useEffect, useState } from "react";
 import { Transportation } from "../../../types/transportation.interface";
 import { TransportationItem } from "../Item";
+import { useAppSelector } from "../../../redux/store";
 
 const height = 380;
 
@@ -34,7 +35,6 @@ export const TransportationList = () => {
   }, []);
 
   const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
-    // Refer to: https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#problems_and_solutions
     if (
       Math.abs(
         e.currentTarget.scrollHeight - e.currentTarget.scrollTop - height
@@ -45,8 +45,24 @@ export const TransportationList = () => {
     }
   };
 
+  const { grid } = useAppSelector((state) => state.transportationReducer);
+
+  const gridSize = grid === "card" ? 2 : 1;
+
   return (
-    <List split={false}>
+    <List
+      split={false}
+      grid={{
+        gutter: 16,
+        // xs: 1,
+        // sm: 1,
+        // md: gridSize,
+        // lg: gridSize,
+        // xl: gridSize,
+        // xxl: gridSize,
+        column: gridSize,
+      }}
+    >
       <VirtualList
         data={data}
         height={height}
