@@ -9,6 +9,8 @@ export const useFilter = () => {
 
   const queryClient = useQueryClient();
 
+  const clearFilters = () => dispatch(setFilters({}));
+
   const handleSubmit = (
     values: TransportationFilter,
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
@@ -27,6 +29,7 @@ export const useFilter = () => {
   };
 
   return {
+    clearFilters,
     handleSubmit,
   };
 };

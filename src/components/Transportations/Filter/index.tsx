@@ -13,7 +13,7 @@ let transportationSchema = object({
 });
 
 export const TransportationFilter = () => {
-  const { handleSubmit } = useFilter();
+  const { handleSubmit, clearFilters } = useFilter();
 
   return (
     <Card
@@ -34,16 +34,37 @@ export const TransportationFilter = () => {
           handleChange,
           handleBlur,
           setFieldValue,
+          handleReset,
         }) => (
           <Form>
-            <Row gutter={16} align={"middle"}>
-              <Col span={17}>
+            <Row
+              gutter={32}
+              align={"top"}
+              style={{
+                marginTop: ".5rem",
+              }}
+            >
+              <Col span={18}>
                 <Row align={"middle"}>
                   <Col span={24}>
-                    <Typography.Title level={5}>Поиск грузов</Typography.Title>
+                    <Typography.Title
+                      level={4}
+                      style={{
+                        margin: 0,
+                        fontSize: "20px",
+                      }}
+                    >
+                      Поиск грузов
+                    </Typography.Title>
                   </Col>
                 </Row>
-                <Row gutter={16} align={"middle"}>
+                <Row
+                  gutter={16}
+                  align={"middle"}
+                  style={{
+                    marginTop: "2.65rem",
+                  }}
+                >
                   <Col span={12}>
                     <Input
                       name="from"
@@ -69,18 +90,30 @@ export const TransportationFilter = () => {
                 </Row>
 
                 <Row gutter={16}>
-                  <Button
-                    type="text"
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    Сбросить фильтры
-                  </Button>
+                  <Col span={24}>
+                    <div
+                      onClick={() => {
+                        clearFilters();
+                        handleReset();
+                      }}
+                      style={{
+                        textDecoration: "underline",
+                        marginTop: "2.5rem",
+                        verticalAlign: "center",
+                        textAlign: "end",
+                        cursor: "pointer",
+                        fontSize: "16px",
+                        color: "#818281",
+                        fontWeight: 400,
+                      }}
+                    >
+                      Сбросить фильтры
+                    </div>
+                  </Col>
                 </Row>
               </Col>
 
-              <Col span={7}>
+              <Col span={6}>
                 <Row gutter={16} align={"middle"}>
                   <Col span={24}>
                     <Input
@@ -118,6 +151,8 @@ export const TransportationFilter = () => {
                       }
                       style={{
                         width: "100%",
+                        paddingBlock: 12,
+                        borderRadius: 8,
                       }}
                     />
                   </Col>
@@ -136,10 +171,11 @@ export const TransportationFilter = () => {
                       htmlType="submit"
                       size="large"
                       style={{
-                        // padding: ".5rem 4rem",
                         width: "100%",
-                        backgroundColor: "orange",
-                        fontSize: ".8rem",
+                        backgroundColor: "#FF9A19",
+                        fontSize: "16px",
+                        height: "56px",
+                        fontWeight: 700,
                       }}
                     >
                       ПОИСК
