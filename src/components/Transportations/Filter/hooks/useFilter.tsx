@@ -1,8 +1,8 @@
 import { useQueryClient } from "@tanstack/react-query";
+import { FormikErrors } from "formik";
 import { useAppDispatch, useAppSelector } from "../../../../redux/store";
 import { setFilters } from "../../../../redux/transportation/slice";
 import { TransportationFilter } from "../../../../types/filter.interface";
-import { FormikErrors } from "formik";
 
 export const useFilter = () => {
   const { filters } = useAppSelector((state) => state.transportationReducer);

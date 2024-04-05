@@ -79,6 +79,7 @@ export const TransportationFilter = () => {
                       <div>{errors.from}</div>
                     ) : null}
                   </Col>
+
                   <Col span={12}>
                     <Input
                       name="to"
@@ -89,6 +90,7 @@ export const TransportationFilter = () => {
                     />
                     {errors.to && touched.to ? <div>{errors.to}</div> : null}
                   </Col>
+
                   <div
                     onClick={() => {
                       swapFromAndTo({
@@ -105,9 +107,9 @@ export const TransportationFilter = () => {
                       textAlign: "center",
                       verticalAlign: "middle",
                       position: "absolute",
-                      left: "47%",
                       zIndex: 999,
                       backgroundColor: "white",
+                      left: "48%",
                     }}
                   >
                     <SwapOutlined

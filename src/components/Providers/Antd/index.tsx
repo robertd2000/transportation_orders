@@ -8,7 +8,6 @@ type Props = {
 export const AntdProvider: FC<Props> = ({ children }) => {
   return (
     <ConfigProvider
-      // componentSize={"large"}
       theme={{
         token: {
           fontFamily: "Roboto",
