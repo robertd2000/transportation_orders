@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import { object, string, date } from "yup";
 import { useFilter } from "./hooks/useFilter";
 import { initialValues } from "./constants";
+import { SwapOutlined } from "@ant-design/icons";
 
 let transportationSchema = object({
   from: string(),
@@ -63,6 +64,7 @@ export const TransportationFilter = () => {
                   align={"middle"}
                   style={{
                     marginTop: "2.65rem",
+                    position: "relative",
                   }}
                 >
                   <Col span={12}>
@@ -87,6 +89,33 @@ export const TransportationFilter = () => {
                     />
                     {errors.to && touched.to ? <div>{errors.to}</div> : null}
                   </Col>
+                  <div
+                    style={{
+                      height: "38px",
+                      width: "38px",
+                      border: "1px solid #818281",
+                      borderRadius: "20px",
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                      position: "absolute",
+                      left: "47%",
+                      zIndex: 999,
+                      backgroundColor: "white",
+                    }}
+                  >
+                    <SwapOutlined
+                      style={{
+                        height: "16px",
+                        width: "16px",
+                        textAlign: "center",
+                        verticalAlign: "middle",
+                        color: "#818281",
+                        cursor: "pointer",
+                        fontSize: "1.2rem",
+                        marginTop: ".7rem",
+                      }}
+                    />
+                  </div>
                 </Row>
 
                 <Row gutter={16}>
