@@ -1,10 +1,10 @@
 import { Button, Card, Col, DatePicker, Input, Row, Typography } from "antd";
+import { SwapOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 import { Formik, Form } from "formik";
 import { object, string, date } from "yup";
 import { useFilter } from "./hooks/useFilter";
 import { initialValues } from "./constants";
-import { SwapOutlined } from "@ant-design/icons";
 
 let transportationSchema = object({
   from: string(),
@@ -14,7 +14,7 @@ let transportationSchema = object({
 });
 
 export const TransportationFilter = () => {
-  const { handleSubmit, clearFilters } = useFilter();
+  const { handleSubmit, clearFilters, swapFromAndTo } = useFilter();
 
   return (
     <Card
@@ -90,6 +90,13 @@ export const TransportationFilter = () => {
                     {errors.to && touched.to ? <div>{errors.to}</div> : null}
                   </Col>
                   <div
+                    onClick={() => {
+                      swapFromAndTo({
+                        from: values.from,
+                        to: values.to,
+                        setFieldValue,
+                      });
+                    }}
                     style={{
                       height: "38px",
                       width: "38px",
