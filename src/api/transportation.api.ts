@@ -1,4 +1,5 @@
 import { Transportations } from "../mock/transportations";
+import { TransportationFilter } from "../types/filter.interface";
 import { Transportation } from "../types/transportation.interface";
 
 export const getTransportations = async (
@@ -9,11 +10,7 @@ export const getTransportations = async (
     offset: number;
     page: number;
   },
-  filter?: {
-    from?: string;
-    to?: string;
-    id?: string;
-  }
+  filter?: Partial<TransportationFilter>
 ): Promise<Transportation[]> => {
   console.log(
     "a",
