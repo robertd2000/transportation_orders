@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Transportation } from "../../../types/transportation.interface";
 import { TransportationItem } from "../Item";
 
+const height = 370;
+
 export const TransportationList = () => {
   const [data, setData] = useState<Transportation[]>([]);
   const [page, setPage] = useState<number>(0);
@@ -32,10 +34,9 @@ export const TransportationList = () => {
   }, []);
 
   const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
-    // Refer to: https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#problems_and_solutions
     if (
       Math.abs(
-        e.currentTarget.scrollHeight - e.currentTarget.scrollTop - 400
+        e.currentTarget.scrollHeight - e.currentTarget.scrollTop - height
       ) <= 1
     ) {
       appendData();
@@ -47,7 +48,7 @@ export const TransportationList = () => {
     <List split={false}>
       <VirtualList
         data={data}
-        height={400}
+        height={height}
         itemHeight={116}
         itemKey="id"
         onScroll={onScroll}

@@ -11,6 +11,8 @@ export const AntdProvider: FC<Props> = ({ children }) => {
       theme={{
         token: {
           fontFamily: "Roboto",
+          fontSize: 18,
+          colorText: "#404140",
         },
         components: {
           Card: {
