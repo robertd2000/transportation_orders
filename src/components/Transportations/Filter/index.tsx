@@ -21,6 +21,7 @@ export const TransportationFilter = () => {
       style={{
         height: 269,
         width: "100%",
+        marginTop: "1rem",
       }}
     >
       <Formik
@@ -178,7 +179,7 @@ export const TransportationFilter = () => {
                     <DatePicker
                       name="loadingDate"
                       allowClear
-                      size="large"
+                      // size="large"
                       placeholder="Дата погрузки"
                       onChange={(_, dateString) =>
                         setFieldValue("loadingDate", dateString)
@@ -191,6 +192,7 @@ export const TransportationFilter = () => {
                         width: "100%",
                         paddingBlock: 12,
                         borderRadius: 8,
+                        height: 49,
                       }}
                     />
                   </Col>

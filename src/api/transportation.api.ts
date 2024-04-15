@@ -21,8 +21,8 @@ export const getTransportations = async (
 
   const data = new Promise((resolve) => {
     const transportationData = Transportations.filter((item) => {
-      if (filter?.id) {
-        return item.id.startsWith(filter.id);
+      if (filter?.orderId) {
+        return item.id.startsWith(filter.orderId);
       }
       if (filter?.from) {
         return item.shipping.city.startsWith(filter.from);
