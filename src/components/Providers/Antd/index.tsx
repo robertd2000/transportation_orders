@@ -13,6 +13,7 @@ export const AntdProvider: FC<Props> = ({ children }) => {
           fontFamily: "Roboto",
           fontSize: 18,
           colorText: "#404140",
+          fontWeightStrong: 500,
         },
         components: {
           Card: {
@@ -32,6 +33,9 @@ export const AntdProvider: FC<Props> = ({ children }) => {
             paddingBlock: 12,
             fontSize: 14,
             borderRadius: 8,
+          },
+          Typography: {
+            fontWeightStrong: 500,
           },
         },
       }}
