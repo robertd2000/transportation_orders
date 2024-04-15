@@ -11,27 +11,22 @@ export const getTransportations = async ({
   page?: number;
   filters?: Partial<TransportationFilter>;
 }): Promise<Transportation[]> => {
-  console.log(
-    "a",
-    page * offset,
-    page * offset + offset,
-    Transportations.slice(page * offset, page * offset + offset)
-  );
-
   const data = new Promise((resolve) => {
     const transportationData = Transportations.filter((item) => {
+      let isOk = true;
       if (filters?.orderId) {
-        return item.id.startsWith(filters.orderId);
+        if (isOk) isOk = item.id.startsWith(filters.orderId);
       }
       if (filters?.from) {
-        return item.shipping.city.startsWith(filters.from);
+        if (isOk) isOk = item.shipping.city.startsWith(filters.from);
       }
       if (filters?.to) {
-        return item.destination.city.startsWith(filters.to);
+        if (isOk) isOk = item.destination.city.startsWith(filters.to);
       }
 
-      return true;
+      return isOk;
     });
+
     return resolve(
       transportationData.slice(page * offset, page * offset + offset)
     );
