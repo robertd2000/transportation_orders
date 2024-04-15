@@ -15,7 +15,7 @@ export const ItemLocation: FC<ItemLocationProps> = ({
         borderRight: "1px solid #f0f0f0",
       }}
     >
-      <Row gutter={16}>
+      <Row gutter={[16, 10]}>
         <Col span={24}>
           <strong
             style={{

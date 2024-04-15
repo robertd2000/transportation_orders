@@ -13,7 +13,7 @@ export const ItemMainInfo: FC<ItemMainInfoProps> = ({ item }) => {
     >
       <Row
         justify={"space-between"}
-        gutter={16}
+        gutter={[16, 10]}
         style={{
           margin: "0 .5rem",
         }}
