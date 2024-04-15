@@ -81,17 +81,6 @@ export const TransportationFilter = () => {
                     ) : null}
                   </Col>
 
-                  <Col span={12}>
-                    <Input
-                      name="to"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.to}
-                      placeholder="Куда"
-                    />
-                    {errors.to && touched.to ? <div>{errors.to}</div> : null}
-                  </Col>
-
                   <div
                     onClick={() => {
                       swapFromAndTo({
@@ -126,6 +115,16 @@ export const TransportationFilter = () => {
                       }}
                     />
                   </div>
+                  <Col span={12}>
+                    <Input
+                      name="to"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.to}
+                      placeholder="Куда"
+                    />
+                    {errors.to && touched.to ? <div>{errors.to}</div> : null}
+                  </Col>
                 </Row>
 
                 <Row gutter={16}>
