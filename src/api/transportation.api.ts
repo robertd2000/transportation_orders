@@ -23,6 +23,9 @@ export const getTransportations = async ({
       if (filters?.to) {
         if (isOk) isOk = item.destination.city.startsWith(filters.to);
       }
+      if (filters?.loadingDate) {
+        if (isOk) isOk = item.loadingDate.valueOf() <= filters?.loadingDate;
+      }
 
       return isOk;
     });
