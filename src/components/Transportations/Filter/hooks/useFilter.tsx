@@ -1,11 +1,10 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { FormikErrors } from "formik";
-import { useAppDispatch, useAppSelector } from "../../../../redux/store";
+import { useAppDispatch } from "../../../../redux/store";
 import { setFilters } from "../../../../redux/transportation/slice";
 import { TransportationFilter } from "../../../../types/filter.interface";
 
 export const useFilter = () => {
-  const { filters } = useAppSelector((state) => state.transportationReducer);
   const dispatch = useAppDispatch();
 
   const queryClient = useQueryClient();
@@ -24,7 +23,7 @@ export const useFilter = () => {
     );
 
     queryClient.invalidateQueries({
-      queryKey: ["getTransportationsInit", filters],
+      queryKey: ["getTransportationsInit"],
     });
     setSubmitting(false);
   };

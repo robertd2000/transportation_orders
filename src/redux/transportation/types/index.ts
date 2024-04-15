@@ -4,7 +4,7 @@ export interface InitialState {
 }
 
 export interface Filter {
-  loadingData?: number;
+  loadingDate?: number;
   from?: string;
   to?: string;
   orderId?: string;

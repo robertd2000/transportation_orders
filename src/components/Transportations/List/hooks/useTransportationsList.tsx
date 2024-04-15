@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getTransportations } from "../../../../api/transportation.api";
+import { useAppSelector } from "../../../../redux/store";
 import { HEIGHT } from "../../../../constants";
 import { Transportation } from "../../../../types/transportation.interface";
 
 export const useTransportationsList = () => {
   const [data, setData] = useState<Transportation[]>([]);
   const [page, setPage] = useState<number>(0);
+
+  const { filters } = useAppSelector((state) => state.transportationReducer);
 
   const { refetch } = useQuery({
     queryKey: ["getTransportations", { page }],
@@ -21,13 +24,21 @@ export const useTransportationsList = () => {
     },
   });
 
+  useQuery({
+    queryKey: ["getTransportationsInit", { filters }],
+    queryFn: async () => {
+      const data = await getTransportations({ filters });
+
+      setData(data);
+      setPage(0);
+
+      return data;
+    },
+  });
+
   const appendData = () => {
     refetch();
   };
-
-  useEffect(() => {
-    appendData();
-  }, []);
 
   const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
     if (

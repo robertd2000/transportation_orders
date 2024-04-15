@@ -110,7 +110,7 @@ export const TransportationFilter = () => {
                       position: "absolute",
                       zIndex: 999,
                       backgroundColor: "white",
-                      left: "48%",
+                      left: "47.5%",
                     }}
                   >
                     <SwapOutlined
@@ -192,7 +192,7 @@ export const TransportationFilter = () => {
                         width: "100%",
                         paddingBlock: 12,
                         borderRadius: 8,
-                        height: 49,
+                        height: 49.5,
                       }}
                     />
                   </Col>
