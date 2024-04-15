@@ -8,6 +8,7 @@ export const TransportationFilter = () => {
       style={{
         height: 269,
         width: "100%",
+        marginTop: "1rem",
       }}
     >
       Filter
