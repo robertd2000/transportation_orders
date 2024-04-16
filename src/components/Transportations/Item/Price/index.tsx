@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Col, Typography } from "antd";
+import { getNumber } from "../../../../utils/number";
 import { ItemPriceProps } from "./ItemPrice.interface";
 import style from "./styles/ItemPrice.module.scss";
 
@@ -13,9 +14,9 @@ export const ItemPrice: FC<ItemPriceProps> = ({ price, fuelPrice }) => {
       }}
     >
       <Typography.Title level={5} className={style.price}>
-        {price} ₽
+        {getNumber(price)} ₽
       </Typography.Title>
-      <p className={style.fuel}>ГСМ: {fuelPrice} ₽</p>
+      <p className={style.fuel}>ГСМ: {getNumber(fuelPrice)} ₽</p>
     </Col>
   );
 };

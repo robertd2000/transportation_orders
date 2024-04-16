@@ -12,7 +12,7 @@ export const ItemLocation: FC<ItemLocationProps> = ({
 }) => {
   return (
     <Col span={8} className={style.card}>
-      <Row gutter={[16, 10]}>
+      <Row gutter={[16, 6]}>
         <Col span={24}>
           <strong>{shipping.city}</strong>{" "}
           <span className={style.region}>{shipping.district}</span>
