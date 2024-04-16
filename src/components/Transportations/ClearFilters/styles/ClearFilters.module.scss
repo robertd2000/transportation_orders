@@ -1,0 +1,15 @@
+.clear {
+  text-decoration: underline;
+  margin-top: 2.5rem;
+  vertical-align: center;
+  text-align: end;
+  cursor: pointer;
+  font-size: 16px;
+  color: #818281;
+  font-weight: 400;
+  transition: all linear 0.2s;
+
+  &:hover {
+    color: #ff9a19;
+  }
+}

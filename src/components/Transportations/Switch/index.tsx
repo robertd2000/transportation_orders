@@ -1,26 +1,13 @@
 import { FC } from "react";
 import { SwapOutlined } from "@ant-design/icons";
 import { SwitchFieldsProps } from "./SwitchFields.interface";
+import style from "./styles/SwitchFields.module.scss";
 
 export const SwitchFields: FC<SwitchFieldsProps> = ({ handler }) => {
   return (
-    <div
-      onClick={handler}
-      style={{
-        height: "38px",
-        width: "38px",
-        border: "1px solid #818281",
-        borderRadius: "20px",
-        textAlign: "center",
-        verticalAlign: "middle",
-        position: "absolute",
-        zIndex: 999,
-        backgroundColor: "white",
-        left: "47.5%",
-        cursor: "pointer",
-      }}
-    >
+    <div className={style.swapWrapper} onClick={handler} style={{}}>
       <SwapOutlined
+        className={style.icon}
         style={{
           height: "16px",
           width: "16px",

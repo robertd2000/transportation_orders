@@ -6,18 +6,13 @@ import { SwitchFields } from "../Switch";
 import { useFilter } from "./hooks/useFilter";
 import { transportationSchema } from "../../../schemas/transportations";
 import { initialValues } from "./constants";
+import style from "./styles/Filter.module.scss";
 
 export const TransportationFilter = () => {
   const { handleSubmit, clearFilters, swapFromAndTo } = useFilter();
 
   return (
-    <Card
-      style={{
-        height: 269,
-        width: "100%",
-        marginTop: "1rem",
-      }}
-    >
+    <Card className={style.card}>
       <Formik
         initialValues={initialValues}
         validationSchema={transportationSchema}
@@ -33,23 +28,11 @@ export const TransportationFilter = () => {
           handleReset,
         }) => (
           <Form>
-            <Row
-              gutter={32}
-              align={"top"}
-              style={{
-                marginTop: ".5rem",
-              }}
-            >
+            <Row gutter={32} align={"top"} className={style.formInner}>
               <Col span={18}>
                 <Row align={"middle"}>
                   <Col span={24}>
-                    <Typography.Title
-                      level={4}
-                      style={{
-                        margin: 0,
-                        fontSize: "20px",
-                      }}
-                    >
+                    <Typography.Title level={4} className={style.title}>
                       Поиск грузов
                     </Typography.Title>
                   </Col>
@@ -57,10 +40,7 @@ export const TransportationFilter = () => {
                 <Row
                   gutter={16}
                   align={"middle"}
-                  style={{
-                    marginTop: "2.65rem",
-                    position: "relative",
-                  }}
+                  className={style.destinations}
                 >
                   <Col span={12}>
                     <Input
@@ -140,12 +120,7 @@ export const TransportationFilter = () => {
                       value={
                         values.loadingDate ? dayjs(values.loadingDate) : ""
                       }
-                      style={{
-                        width: "100%",
-                        paddingBlock: 12,
-                        borderRadius: 8,
-                        height: 49.5,
-                      }}
+                      className={style.datepicker}
                     />
                   </Col>
                 </Row>
@@ -162,13 +137,7 @@ export const TransportationFilter = () => {
                       type="primary"
                       htmlType="submit"
                       size="large"
-                      style={{
-                        width: "100%",
-                        backgroundColor: "#FF9A19",
-                        fontSize: "16px",
-                        height: "56px",
-                        fontWeight: 700,
-                      }}
+                      className={style.submit}
                     >
                       ПОИСК
                     </Button>

@@ -1,0 +1,34 @@
+.card {
+  height: 269px;
+  width: 100%;
+  margin-top: 1rem;
+
+  .formInner {
+    margin-top: 0.5rem;
+
+    .title {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .destinations {
+      margin-top: 2.65rem;
+      position: relative;
+    }
+
+    .datepicker {
+      width: 100%;
+      padding-block: 12px;
+      border-radius: 8px;
+      height: 49.5px;
+    }
+
+    .submit {
+      width: 100%;
+      background-color: #ff9a19;
+      font-size: 16px;
+      height: 56px;
+      font-weight: 700;
+    }
+  }
+}
