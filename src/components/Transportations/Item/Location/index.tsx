@@ -1,6 +1,7 @@
 import { Col, Row } from "antd";
 import { FC } from "react";
 import { ItemLocationProps } from "./ItemLocation.interface";
+import style from "./styles/ItemLocation.module.scss";
 
 export const ItemLocation: FC<ItemLocationProps> = ({
   shipping,
@@ -9,82 +10,22 @@ export const ItemLocation: FC<ItemLocationProps> = ({
   stations,
 }) => {
   return (
-    <Col
-      span={8}
-      style={{
-        borderRight: "1px solid #f0f0f0",
-      }}
-    >
+    <Col span={8} className={style.card}>
       <Row gutter={[16, 10]}>
         <Col span={24}>
-          <strong
-            style={{
-              fontWeight: 500,
-            }}
-          >
-            {shipping.city}
-          </strong>{" "}
-          <span
-            style={{
-              fontWeight: 400,
-              fontSize: 18,
-              color: "#818281",
-            }}
-          >
-            {shipping.district}
-          </span>
+          <strong>{shipping.city}</strong>{" "}
+          <span className={style.region}>{shipping.district}</span>
         </Col>
         <Col span={24}>
-          <b
-            style={{
-              fontWeight: 500,
-            }}
-          >
-            {destination.city}
-          </b>{" "}
-          <span
-            style={{
-              fontWeight: 400,
-              fontSize: 18,
-              color: "#818281",
-            }}
-          >
-            {destination.district}
-          </span>
+          <strong>{destination.city}</strong>{" "}
+          <span className={style.region}>{destination.district}</span>
         </Col>
-        <Col
-          span={24}
-          style={{
-            fontWeight: 400,
-            fontSize: 16,
-          }}
-        >
-          <span
-            style={{
-              fontWeight: 400,
-              fontSize: 16,
-              color: "#818281",
-            }}
-          >
-            Расстояние:
-          </span>{" "}
-          <b
-            style={{
-              fontWeight: 500,
-            }}
-          >
-            {" "}
-            {distance} км
-          </b>
+
+        <Col span={24} className={style.distanceWrapper}>
+          <span className={style.distance}>Расстояние:</span>{" "}
+          <strong> {distance} км</strong>
           {stations ? (
-            <span
-              style={{
-                marginLeft: "1rem",
-                color: "#017B59",
-              }}
-            >
-              +{stations} ункта
-            </span>
+            <span className={style.station}>+{stations} ункта</span>
           ) : null}
         </Col>
       </Row>

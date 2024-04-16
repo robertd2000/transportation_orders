@@ -1,0 +1,33 @@
+.swapWrapper {
+  height: 38px;
+  width: 38px;
+  border: 1px solid #818281;
+  border-radius: 20px;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  z-index: 999;
+  background-color: white;
+  left: 47.5%;
+  cursor: pointer;
+  transition: all linear 0.2s;
+
+  &:hover {
+    border: 1px solid #017b59;
+  }
+
+  .icon {
+    height: 16px;
+    width: 16px;
+    text-align: center;
+    vertical-align: middle;
+    color: #818281;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
+
+    &:hover {
+      color: #017b59;
+    }
+  }
+}

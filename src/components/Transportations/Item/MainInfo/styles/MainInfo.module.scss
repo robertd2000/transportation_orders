@@ -1,0 +1,21 @@
+.card {
+  border-right: 1px solid #f0f0f0;
+
+  .cardWrapper {
+    margin: 0 0.5rem;
+
+    .grey {
+      color: #818281;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .tent {
+      text-align: right;
+    }
+    .id {
+      text-align: right;
+      color: #818281;
+    }
+  }
+}

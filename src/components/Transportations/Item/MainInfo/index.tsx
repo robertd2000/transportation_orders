@@ -2,50 +2,24 @@ import { FC } from "react";
 import { Col, Row } from "antd";
 import dayjs from "dayjs";
 import { ItemMainInfoProps } from "./ItemMainInfo.intrface";
+import style from "./styles/MainInfo.module.scss";
 
 export const ItemMainInfo: FC<ItemMainInfoProps> = ({ item }) => {
   return (
-    <Col
-      span={12}
-      style={{
-        borderRight: "1px solid #f0f0f0",
-      }}
-    >
+    <Col span={12} className={style.card}>
       <Row
         justify={"space-between"}
         gutter={[16, 10]}
-        style={{
-          margin: "0 .5rem",
-        }}
+        className={style.cardWrapper}
       >
         <Col span={12}>{item.category}</Col>
-        <Col
-          span={12}
-          style={{
-            textAlign: "right",
-            color: "#818281",
-          }}
-        >
+        <Col span={12} className={style.id}>
           №{item.id.slice(0, 20)}
         </Col>
-        <Col
-          span={12}
-          style={{
-            fontWeight: 400,
-            fontSize: 16,
-            color: "#818281",
-          }}
-        >
+        <Col span={12} className={style.grey}>
           {item.weight} т. / {item.volume} м3
         </Col>
-        <Col
-          span={12}
-          style={{
-            textAlign: "right",
-            color: "#818281",
-            fontSize: 16,
-          }}
-        >
+        <Col span={12} className={`${style.grey} ${style.tent}`}>
           Тент / полная
         </Col>
         <Col
@@ -54,14 +28,7 @@ export const ItemMainInfo: FC<ItemMainInfoProps> = ({ item }) => {
             fontSize: 16,
           }}
         >
-          <span
-            style={{
-              fontWeight: 400,
-              color: "#818281",
-            }}
-          >
-            Погрузка:{" "}
-          </span>
+          <span className={style.grey}>Погрузка: </span>
           {dayjs(item.loadingDate).locale("ru").format("D MMMM, YYYY hh:mm")}
         </Col>
       </Row>
