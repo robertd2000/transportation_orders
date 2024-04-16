@@ -1,17 +1,11 @@
 import { Button, Card, Col, DatePicker, Input, Row, Typography } from "antd";
-import { SwapOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 import { Formik, Form } from "formik";
-import { object, string, date } from "yup";
+import { ClearFilters } from "../ClearFilters";
+import { SwitchFields } from "../Switch";
 import { useFilter } from "./hooks/useFilter";
+import { transportationSchema } from "../../../schemas/transportations";
 import { initialValues } from "./constants";
-
-let transportationSchema = object({
-  from: string(),
-  to: string(),
-  orderId: string(),
-  loadingDate: date(),
-});
 
 export const TransportationFilter = () => {
   const { handleSubmit, clearFilters, swapFromAndTo } = useFilter();
@@ -81,40 +75,16 @@ export const TransportationFilter = () => {
                     ) : null}
                   </Col>
 
-                  <div
-                    onClick={() => {
+                  <SwitchFields
+                    handler={() => {
                       swapFromAndTo({
                         from: values.from,
                         to: values.to,
                         setFieldValue,
                       });
                     }}
-                    style={{
-                      height: "38px",
-                      width: "38px",
-                      border: "1px solid #818281",
-                      borderRadius: "20px",
-                      textAlign: "center",
-                      verticalAlign: "middle",
-                      position: "absolute",
-                      zIndex: 999,
-                      backgroundColor: "white",
-                      left: "47.5%",
-                    }}
-                  >
-                    <SwapOutlined
-                      style={{
-                        height: "16px",
-                        width: "16px",
-                        textAlign: "center",
-                        verticalAlign: "middle",
-                        color: "#818281",
-                        cursor: "pointer",
-                        fontSize: "1.2rem",
-                        marginTop: ".7rem",
-                      }}
-                    />
-                  </div>
+                  />
+
                   <Col span={12}>
                     <Input
                       name="to"
@@ -127,28 +97,12 @@ export const TransportationFilter = () => {
                   </Col>
                 </Row>
 
-                <Row gutter={16}>
-                  <Col span={24}>
-                    <div
-                      onClick={() => {
-                        clearFilters();
-                        handleReset();
-                      }}
-                      style={{
-                        textDecoration: "underline",
-                        marginTop: "2.5rem",
-                        verticalAlign: "center",
-                        textAlign: "end",
-                        cursor: "pointer",
-                        fontSize: "16px",
-                        color: "#818281",
-                        fontWeight: 400,
-                      }}
-                    >
-                      Сбросить фильтры
-                    </div>
-                  </Col>
-                </Row>
+                <ClearFilters
+                  handler={() => {
+                    clearFilters();
+                    handleReset();
+                  }}
+                />
               </Col>
 
               <Col span={6}>
@@ -178,7 +132,6 @@ export const TransportationFilter = () => {
                     <DatePicker
                       name="loadingDate"
                       allowClear
-                      // size="large"
                       placeholder="Дата погрузки"
                       onChange={(_, dateString) =>
                         setFieldValue("loadingDate", dateString)
