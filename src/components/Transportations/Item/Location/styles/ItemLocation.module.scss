@@ -1,0 +1,27 @@
+.card {
+  border-right: 1px solid #f0f0f0;
+
+  .distanceWrapper {
+    font-weight: 400;
+    font-size: 16px;
+
+    .distance {
+      font-size: 16px;
+    }
+
+    .station {
+      margin-left: 1rem;
+      color: #017b59;
+    }
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  span {
+    font-weight: 400;
+    font-size: 18px;
+    color: #818281;
+  }
+}
