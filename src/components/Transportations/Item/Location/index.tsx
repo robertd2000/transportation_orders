@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import { FC } from "react";
+import { getStation } from "../../../../utils/station";
 import { ItemLocationProps } from "./ItemLocation.interface";
 import style from "./styles/ItemLocation.module.scss";
 
@@ -11,7 +12,7 @@ export const ItemLocation: FC<ItemLocationProps> = ({
 }) => {
   return (
     <Col span={8} className={style.card}>
-      <Row gutter={[16, 10]}>
+      <Row gutter={[16, 6]}>
         <Col span={24}>
           <strong>{shipping.city}</strong>{" "}
           <span className={style.region}>{shipping.district}</span>
@@ -25,7 +26,7 @@ export const ItemLocation: FC<ItemLocationProps> = ({
           <span className={style.distance}>Расстояние:</span>{" "}
           <strong> {distance} км</strong>
           {stations ? (
-            <span className={style.station}>+{stations} ункта</span>
+            <span className={style.station}>+{getStation(stations)}</span>
           ) : null}
         </Col>
       </Row>

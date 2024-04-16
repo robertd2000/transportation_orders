@@ -4,7 +4,10 @@ import { faker } from "../utils/faker";
 export function createRandomTransportation(): Transportation {
   return {
     id: faker.string.uuid(),
-    price: faker.commerce.price(),
+    price: faker.commerce.price({
+      min: 10000,
+      max: 1000000,
+    }),
     fuelPrice: faker.commerce.price(),
     distance: (Math.random() * 10000).toFixed(2),
     stations: (Math.random() * 10).toFixed(0),

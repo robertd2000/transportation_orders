@@ -9,7 +9,7 @@ export const ItemMainInfo: FC<ItemMainInfoProps> = ({ item }) => {
     <Col span={12} className={style.card}>
       <Row
         justify={"space-between"}
-        gutter={[16, 10]}
+        gutter={[16, 6]}
         className={style.cardWrapper}
       >
         <Col span={12}>{item.category}</Col>
