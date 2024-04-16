@@ -1,5 +1,5 @@
-import { Transportations } from "./components/Transportations";
 import { Providers } from "./components/Providers";
+import { Transportations } from "./components/Transportations";
 import dayjs from "dayjs";
 import("dayjs/locale/ru");
 
