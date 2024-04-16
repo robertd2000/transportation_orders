@@ -18,6 +18,9 @@ export const AntdProvider: FC<Props> = ({ children }) => {
         components: {
           Card: {
             borderRadiusLG: 12,
+            padding: 24,
+            paddingLG: 24,
+            margin: 24,
           },
           List: {
             itemPadding: "6px 0",
