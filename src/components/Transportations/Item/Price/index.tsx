@@ -7,7 +7,9 @@ import style from "./styles/ItemPrice.module.scss";
 export const ItemPrice: FC<ItemPriceProps> = ({ price, fuelPrice }) => {
   return (
     <Col
-      span={4}
+      lg={4}
+      md={24}
+      xs={24}
       className={style.card}
       style={{
         textAlign: "center",

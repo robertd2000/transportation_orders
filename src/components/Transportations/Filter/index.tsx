@@ -29,7 +29,7 @@ export const TransportationFilter = () => {
         }) => (
           <Form>
             <Row gutter={32} align={"top"} className={style.formInner}>
-              <Col span={18}>
+              <Col lg={18} md={24} xs={24}>
                 <Row align={"middle"}>
                   <Col span={24}>
                     <Typography.Title level={4} className={style.title}>
@@ -85,7 +85,7 @@ export const TransportationFilter = () => {
                 />
               </Col>
 
-              <Col span={6}>
+              <Col lg={6} md={24} xs={24}>
                 <Row gutter={16} align={"middle"}>
                   <Col span={24}>
                     <Input

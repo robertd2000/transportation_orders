@@ -6,7 +6,7 @@ import style from "./styles/MainInfo.module.scss";
 
 export const ItemMainInfo: FC<ItemMainInfoProps> = ({ item }) => {
   return (
-    <Col span={12} className={style.card}>
+    <Col lg={12} md={24} xs={24} className={style.card}>
       <Row
         justify={"space-between"}
         gutter={[16, 6]}
