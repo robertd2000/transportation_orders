@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getTransportations } from "../../../../api/transportation.api";
 import { useAppSelector } from "../../../../redux/store";
-import { HEIGHT } from "../../../../constants";
+import { useHeight } from "./useHeight";
+// import { HEIGHT } from "../../../../constants";
 import { Transportation } from "../../../../types/transportation.interface";
 
 export const useTransportationsList = () => {
   const [data, setData] = useState<Transportation[]>([]);
   const [page, setPage] = useState<number>(0);
+
+  const { ref, height } = useHeight();
 
   const { filters } = useAppSelector((state) => state.transportationReducer);
 
@@ -43,7 +46,7 @@ export const useTransportationsList = () => {
   const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
     if (
       Math.abs(
-        e.currentTarget.scrollHeight - e.currentTarget.scrollTop - HEIGHT
+        e.currentTarget.scrollHeight - e.currentTarget.scrollTop - height
       ) <= 1
     ) {
       appendData();
@@ -53,6 +56,8 @@ export const useTransportationsList = () => {
 
   return {
     data,
+    ref,
+    height,
     onScroll,
   };
 };
