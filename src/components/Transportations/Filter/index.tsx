@@ -86,8 +86,8 @@ export const TransportationFilter = () => {
               </Col>
 
               <Col lg={6} md={24} xs={24}>
-                <Row gutter={16} align={"middle"}>
-                  <Col span={24}>
+                <Row gutter={[16, 20]} align={"middle"}>
+                  <Col lg={24} md={12} xs={24}>
                     <Input
                       name="orderId"
                       onChange={handleChange}
@@ -99,16 +99,8 @@ export const TransportationFilter = () => {
                       <div>{errors.orderId}</div>
                     ) : null}
                   </Col>
-                </Row>
 
-                <Row
-                  gutter={16}
-                  align={"middle"}
-                  style={{
-                    marginTop: "1.2rem",
-                  }}
-                >
-                  <Col span={24}>
+                  <Col lg={24} md={12} xs={24}>
                     <DatePicker
                       name="loadingDate"
                       allowClear
