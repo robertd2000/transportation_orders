@@ -16,7 +16,7 @@ export const TransportationList = () => {
         itemKey="id"
         onScroll={onScroll}
       >
-        {(item) => <TransportationItem item={item} />}
+        {(item) => <TransportationItem item={item} key={item.id} />}
       </VirtualList>
     </List>
   );

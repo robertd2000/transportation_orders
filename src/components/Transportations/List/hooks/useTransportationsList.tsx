@@ -17,6 +17,7 @@ export const useTransportationsList = () => {
       const data = await getTransportations({
         offset: 20,
         page,
+        filters,
       });
 
       setData((prev) => [...prev, ...data]);
@@ -25,7 +26,7 @@ export const useTransportationsList = () => {
   });
 
   useQuery({
-    queryKey: ["getTransportationsInit", { filters }],
+    queryKey: ["getTransportationsInit", { ...filters }],
     queryFn: async () => {
       const data = await getTransportations({ filters });
 
